@@ -2,7 +2,18 @@ package com.first;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.Vector;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.springframework.context.ApplicationContext;
 
@@ -154,6 +165,93 @@ public class MainClass {
         Exception e1 = app.getBean(Exception.class);
 
         System.out.println("Exception Object: " + e1);
+        
+        
+     // =========================================================
+     // ARRAYLIST BEAN
+     // =========================================================
+
+     ArrayList<String> names1 = app.getBean(ArrayList.class);
+
+     System.out.println("ArrayList: " + names1);
+     
+     //or
+     ArrayList<String> names2 = app.getBean("getNames", ArrayList.class);
+
+     System.out.println("ArrayList: " + names2);
+     
+     Vector<String> vector =
+    	        app.getBean("getVector", Vector.class);
+
+    	System.out.println("Vector: " + vector);
+
+
+    	HashSet<String> hashSet =
+    	        app.getBean("getHashSet", HashSet.class);
+
+    	System.out.println("HashSet: " + hashSet);
+
+
+    	LinkedHashSet<String> linkedHashSet =
+    	        app.getBean("getLinkedHashSet", LinkedHashSet.class);
+
+    	System.out.println("LinkedHashSet: " + linkedHashSet);
+
+
+    	TreeSet<String> treeSet =
+    	        app.getBean("getTreeSet", TreeSet.class);
+
+    	System.out.println("TreeSet: " + treeSet);
+
+
+    	HashMap<Integer, String> hashMap =
+    	        app.getBean("getHashMap", HashMap.class);
+
+    	System.out.println("HashMap: " + hashMap);
+
+
+    	LinkedHashMap<Integer, String> linkedHashMap =
+    	        app.getBean("getLinkedHashMap", LinkedHashMap.class);
+
+    	System.out.println("LinkedHashMap: " + linkedHashMap);
+
+
+    	TreeMap<Integer, String> treeMap =
+    	        app.getBean("getTreeMap", TreeMap.class);
+
+    	System.out.println("TreeMap: " + treeMap);
+    	
+    	
+    	//----------------Interface-----------
+    	
+    	System.out.println();
+    	
+    	
+    	Mobile m = app.getBean("samsung",Mobile.class);
+    	System.out.println(m);
+    	m.text();
+    	
+    	
+    	/*
+    	// =========================================================
+    	// IN-BUILT INTERFACE BEANS
+    	// =========================================================
+
+    	List<String> list = app.getBean("getList", List.class);
+
+    	System.out.println("List: " + list);
+
+
+    	Set<String> set = app.getBean("getSet", Set.class);
+
+    	System.out.println("Set: " + set);
+
+
+    	Map<Integer, String> map = app.getBean("getMap", Map.class);
+
+    	System.out.println("Map: " + map);
+    	
+    	*/
 
     }
 }
